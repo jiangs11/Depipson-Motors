@@ -6,7 +6,7 @@ app.get('/', (req,res) => {
     res.send('Welcome to the Depipson Motors API!')
 })
 
-// note to self: rowan account
+// Note to self: jiangsteven99@gmail.com Mongo Atlas account
 const uri = process.env.MONGO_ATLAS_URI
 
 mongoose.connect(uri, {
@@ -19,8 +19,8 @@ const connection = mongoose.connection
 
 connection.once('open', () => {
     console.log("MongoDB database connection established successfully")
-})
 
-app.listen(process.env.PORT || 5000, () => {
-    console.log(`Server is running on port: ${process.env.PORT}`)
+    app.listen(process.env.PORT || 5000, () => {
+        console.log(`Server is running on port: ${process.env.PORT}`)
+    })
 })
