@@ -8,6 +8,7 @@ const hpp = require('hpp')
 
 const userRouter = require('./routes/userRoute')
 const carRouter = require('./routes/carRoute')
+const devRouter = require('./routes/devRoute')
 
 const app = express()
 
@@ -47,6 +48,6 @@ app.use(hpp())
 // Routes
 app.use('/api/v1/user', userRouter)
 app.use('/api/v1/car', carRouter)
-// app.use('/api/v1/puppeteer', puppeteerRouter)
+app.use('/api/v1/dev', devRouter)
 
 module.exports = app

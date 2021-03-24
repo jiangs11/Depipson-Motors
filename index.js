@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 app.get('/', (req,res) => {
-    res.send('Welcome to the Depipson Motors API! Update: 6:35 PM')
+    res.send('Welcome to the Depipson Motors API! Update: ' + new Date())
 })
 
 // Note to self: jiangsteven99@gmail.com Mongo Atlas account

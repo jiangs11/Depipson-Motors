@@ -9,7 +9,7 @@ const carSchema = new Schema(
             required: [true, 'VIN field required!'],
             unique: true,
         },
-        price: { 
+        price: {
             type: Number,
         },
         year: {
@@ -32,7 +32,11 @@ const carSchema = new Schema(
         },
         num_seats: {
             type: String,
-        }
+        },
+        images: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Image'
+        }]
     }, 
     {
         timestamps: true,

@@ -4,5 +4,10 @@ const router = express.Router()
 
 router.route('/')
     .get(carController.getAllCars)
+    .post(carController.createCar)
+
+router.route('/:vin')
+    .get(carController.getCarInfoByVIN)
+    .patch(carController.editCarDetails)
 
 module.exports = router
