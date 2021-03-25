@@ -7,7 +7,15 @@ router.route('/')
     .post(carController.createCar)
 
 router.route('/:vin')
-    .get(carController.getCarInfoByVIN)
+    .get(carController.getCarInfo)
     .patch(carController.editCarDetails)
+    .delete(carController.deleteCar)
+
+router.route('/motormvc/:vin')
+    .get(carController.getCarInfoMVC)
+
+router.route('/image/:vin')
+    .get(carController.getImagesForCar)
+    .post(carController.addImagesToCar)
 
 module.exports = router

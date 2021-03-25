@@ -6,12 +6,12 @@ const axios = require('axios')
 
 exports.getAllCars = catchAsync(async (req, res) => {
     try {
-        const cars = await Car.find()
+        const cars = await Car.find().populate('images')
 
         res.status(200).json({
             status: 'success',
             results: cars.length,
-            data: { cars }
+            data: cars
         })
     } catch (error) {
         console.log('cars/getAllCars error: ', error)
@@ -21,7 +21,25 @@ exports.getAllCars = catchAsync(async (req, res) => {
     }
 })
 
-exports.getCarInfoByVIN = catchAsync(async (req, res) => {
+exports.getCarInfo = catchAsync(async (req, res) => {
+    try {
+        const vin = req.params.vin
+
+        const carDoc = await Car.findOne({ vin }).populate('images')
+
+        res.status(200).json({
+            status: 'success',
+            data: carDoc
+        })
+    } catch (error) {
+        console.log('cars/getCarInfo error: ', error)
+        res.status(500).json({
+            status: "Couldn't find car with that VIN",
+        })
+    }
+})
+
+exports.getCarInfoMVC = catchAsync(async (req, res) => {
     try {
         // const vin = 'SCBFR7ZA5CC072256'
         const vin = req.params.vin
@@ -101,39 +119,76 @@ exports.editCarDetails = catchAsync(async (req, res) => {
     }
 })
 
-exports.addImagesToCar = catchAsync(async (req, res) => {
+exports.getImagesForCar = catchAsync(async (req, res) => {
     try {
         const vin = req.params.vin
-        const newCarDetails = req.body
 
-        await Car.findOneAndUpdate(
-            { vin }, newCarDetails
-        )
+        const images = await Car.find({ vin }).images
+        console.log('img: ', images)
 
         res.status(200).json({
-            status: 'Car detail successfully updated',
+            status: 'success',
+            data: images
         })
     } catch (error) {
-        console.log('cars/editCarDetails error: ', error)
+        console.log('cars/getImagesForCar error: ', error)
         res.status(500).json({
             status: "Couldn't find car with that VIN",
         })
     }
 })
 
-exports.getImagesForCar = catchAsync(async (req, res) => {
+exports.addImagesToCar = catchAsync(async (req, res) => {
+    try {
+        const vin = req.params.vin
+        const imagesToAdd = req.body.images
+
+        const carID = await Car.find({ vin })._id
+
+        imagesToAdd.forEach(async image => {
+            const url = image.url
+
+            // Create a new Image document for each image in array
+            const newImage = await Image.create({ url })
+
+            // Update current image's car ID
+            await Image.findByIdAndUpdate(newImage._id, { 
+                car: carID
+            }, { useFindAndModify: false })
+
+            // Add each image's ID to the car's image array
+            await Car.findByIdAndUpdate(carID, { 
+                '$push': {
+                    'images': newImage._id
+                }
+            }, { useFindAndModify: false })
+        })
+
+        res.status(200).json({
+            status: 'Images successfully added',
+        })
+    } catch (error) {
+        console.log('cars/addImagesToCar error: ', error)
+        res.status(500).json({
+            status: "Couldn't find car with that VIN",
+        })
+    }
+})
+
+// Cascade deletes all Image associated with the Car
+exports.deleteCar = catchAsync(async (req, res) => {
     try {
         const vin = req.params.vin
 
-        await Car.findOneAndUpdate(
-            { vin }, newCarDetails
-        )
+        const carDoc = await Car.findOneAndDelete({ vin })
+
+        await Image.deleteMany({ car: carDoc._id })
 
         res.status(200).json({
-            status: 'Car detail successfully updated',
+            status: 'Car has been successfully deleted',
         })
     } catch (error) {
-        console.log('cars/editCarDetails error: ', error)
+        console.log('cars/deleteCar error: ', error)
         res.status(500).json({
             status: "Couldn't find car with that VIN",
         })

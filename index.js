@@ -2,8 +2,9 @@ const app = require('./app')
 const mongoose = require('mongoose')
 require('dotenv').config()
 
+const date = new Date()
 app.get('/', (req,res) => {
-    res.send('Welcome to the Depipson Motors API! Update: ' + new Date())
+    res.send('Welcome to the Depipson Motors API! Update: ' + date)
 })
 
 // Note to self: jiangsteven99@gmail.com Mongo Atlas account
