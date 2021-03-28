@@ -6,14 +6,16 @@ const mongoSanitize = require('express-mongo-sanitize')
 const xss = require('xss-clean')
 const hpp = require('hpp')
 
-// const productRouter = require('./routes/productRoutes')
-// const userRouter = require('./routes/userRoutes')
-// const puppeteerRouter = require('./routes/puppeteerRoutes')
+const userRouter = require('./routes/userRoute')
+const carRouter = require('./routes/carRoute')
+const devRouter = require('./routes/devRoute')
 
 const app = express()
 
-/////////
-// Global middlewear
+///////////////////////
+// Global Middlewear
+///////////////////////
+
 // Set security HTTP Headers
 app.use(helmet())
 
@@ -42,10 +44,10 @@ app.use(xss())
 // Pass in whitelist property to allow for some words to 'pollute'
 app.use(hpp())
 
-/////////
+////////////////
 // Routes
-// app.use('/api/v1/product', productRouter)
-// app.use('/api/v1/user', userRouter)
-// app.use('/api/v1/puppeteer', puppeteerRouter)
+app.use('/api/v1/user', userRouter)
+app.use('/api/v1/car', carRouter)
+app.use('/api/v1/dev', devRouter)
 
 module.exports = app

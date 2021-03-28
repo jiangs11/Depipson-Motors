@@ -4,11 +4,13 @@
   "description": "The backend API for Depipson Motors car dealership website.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Steven Jiang",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
