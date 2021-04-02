@@ -1,0 +1,11 @@
+$marginValue: 20px;
+$navTextColor: #fff;
+
+.navLinks {
+    margin-right: $marginValue;
+}
+
+.navbar-dark .navbar-nav .nav-link
+{
+    color: $navTextColor;
+}

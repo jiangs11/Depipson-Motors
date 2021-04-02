@@ -1,14 +1,13 @@
 import React from 'react'
-import NavBar from '../components/Nav'
+import Header from '../components/Header'
 import { withRouter } from 'react-router-dom'
 
-const LandingPage = ({ history }) => {
+function LandingPage({ history }) {
     return (
         <div>
-            <NavBar/>
+            <Header />
             <h1>Landing Page</h1>
             <button onClick={() => history.push('car')}>Go to Car Page</button>
-
         </div>
     )
 }
