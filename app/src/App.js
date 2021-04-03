@@ -15,9 +15,6 @@ import AdminSignIn from './pages/admin/AdminSignIn'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AddCar from './pages/admin/AddCar'
 
-// Style
-import './App.css'
-
 function App() {
 	return (
 		<BrowserRouter>
