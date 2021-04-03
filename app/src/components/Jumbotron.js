@@ -1,4 +1,4 @@
- import Carousel from 'react-bootstrap/Carousel'
+import Carousel from 'react-bootstrap/Carousel'
 import image1 from './../statics/images/image1.jpg'
 import React, { useState } from 'react'
 
@@ -14,7 +14,7 @@ function Jumbotron() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            source={image1}  
+            src={image1}  
             alt="First slide"
           />
           <Carousel.Caption>
@@ -25,7 +25,7 @@ function Jumbotron() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            source={image1}
+            src={image1}
             alt="Second slide"
           />
   
@@ -37,7 +37,7 @@ function Jumbotron() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            source={image1}
+            src={image1}
             alt="Third slide"
           />
   
