@@ -1,5 +1,6 @@
 $marginValue: 20px;
-$navTextColor: #fff;
+$navTextColor: white;
+$activeColor: white;
 
 .navLinks {
     margin-right: $marginValue;
@@ -8,4 +9,9 @@ $navTextColor: #fff;
 .navbar-dark .navbar-nav .nav-link
 {
     color: $navTextColor;
+}
+
+.active {
+    color: $activeColor;
+    text-decoration: none;
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { Form, Col, Row, Button } from 'react-bootstrap'
 import Header from '../components/Header'
 import Jumbotron from '../components/Jumbotron'
 import LandingPageFilter from '../components/LandingPageFilter'
@@ -12,8 +11,7 @@ function LandingPage({ history }) {
         <div>
             <Header />
             <Jumbotron />
-			{/* <br/> */}
-			<hr/>
+			<br/>
 			<LandingPageFilter />
             <h1 style={{textAlign:"center"}}>Start planning your travels here with the latest deals for popular destinations </h1>
             <Cars />
