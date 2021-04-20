@@ -3,6 +3,7 @@ import { Form, Button  } from 'react-bootstrap'
 import Header from '../components/Header'
 import Map from '../components/Map'
 import Footer from '../components/Footer'
+import Favicon from 'react-favicon'
 
 require('dotenv').config()
 
@@ -13,6 +14,14 @@ function AboutUs() {
         <div>
             <Header />
             <h1>About Us / Contact Us Page</h1>
+            <Map
+                googleMapURL={googleMapUrl}
+                loadingElement={<div style={{ height: '100%' }} />}
+                containerElement={<div style={{ height: '400px', width: '50%' }} />}
+                mapElement={<div style={{ height: '100%' }} />}
+            />
+                <div className = 'vl' /> <br />
+
             <Form>
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Mail Us</Form.Label>
@@ -35,13 +44,6 @@ function AboutUs() {
                     Submit
                 </Button>
             </Form>
-
-            <Map
-                googleMapURL={googleMapUrl}
-                loadingElement={<div style={{ height: '100%' }} />}
-                containerElement={<div style={{ height: '400px', width: '50%' }} />}
-                mapElement={<div style={{ height: '100%' }} />}
-            />
             <Footer />
         </div>
     )
