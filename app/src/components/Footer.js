@@ -17,7 +17,7 @@ function Footer() {
                 <Row>
                     <Col>
                         <h5>Main Menu</h5>
-                        <div class="foot">
+                        <div className="foot">
                             <p><a href="/gallery">Browse our Inventory</a></p>
                             <p><a href="/">On Sale Now</a></p>
                             <p><a href="/">Our Services</a></p>
@@ -25,7 +25,7 @@ function Footer() {
                     </Col>
                     <Col>
                         <h5>About Depipson</h5>
-                        <div class="foot">
+                        <div className="foot">
                             <p><a href="/about">About Us</a></p>
                             <p><a href="/">Contact Us</a></p>
                             <p><a href="/">Send Feedback</a></p>
@@ -33,7 +33,7 @@ function Footer() {
                     </Col>
                     <Col>
                         <h5>Social Media</h5>
-                        <div class="foot" style={{display: 'flex', flexDirection: 'column'}}>
+                        <div className="foot" style={{display: 'flex', flexDirection: 'column'}}>
                                 <div className="d-flex align-items-center">
                                     <div style={{pointerEvents: 'none'}}>
                                         <SocialIcon url="https://facebook.com/jaketrent" href="/" style={iconStyles}/>

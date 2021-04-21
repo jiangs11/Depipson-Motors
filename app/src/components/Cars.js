@@ -3,9 +3,9 @@ import { Card, Container, Row, Col } from 'react-bootstrap'
 
 function Cars() {
 	const [imageSource, ] = useState('https://global.toyota/pages/news/images/2019/11/05/1100/001.jpg')
-
+	
     return (
-		<Container class="container">
+		<Container className="container">
             <Row xs='1' sm='2' lg='3' xl='4' className='centered'>
 				<Col>
 					<Card className="card">

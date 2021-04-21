@@ -15,14 +15,14 @@ function Services() {
     const handleSelect = (selectedIndex, e) => {
       	setIndex(selectedIndex)
     }
+
     return (
         <div>
             <Header />
-            <h1>Services Page</h1>
 			<Carousel activeIndex={index} onSelect={handleSelect}>
 				{images.map((image, index) => {
 					return (
-						<Carousel.Item>
+						<Carousel.Item key={index}>
 							<div style={{height: '500px'}}>
 								<img
 									className="d-block w-100 h-100"

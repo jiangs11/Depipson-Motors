@@ -6,14 +6,11 @@ function Header() {
     const { pathname } = useLocation()
 
     const activeTabStyle = {
-        color: 'white',
-        borderBottom: '1px', 
-        borderBottomWidth: '2px', 
-        borderBottomStyle: 'solid'
+        color: 'white'
     }
 
     return (
-        <Navbar bg="dark" variant="dark" expand="md" fixed="top">
+        <Navbar bg="dark" variant="dark" expand="md">
             <Navbar.Brand href="/">Depipson Motors</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -24,11 +21,11 @@ function Header() {
                         href="/gallery"
                     >Gallery</Nav.Link>
 
-                    <Nav.Link 
+                    {/* <Nav.Link 
                         className="navLinks"
                         style={pathname === '/sale' ? activeTabStyle : undefined} 
                         href="/sale"
-                    >Special Deals</Nav.Link>
+                    >Special Deals</Nav.Link> */}
 
                     <Nav.Link 
                         className="navLinks"
@@ -44,8 +41,8 @@ function Header() {
 
                     <Nav.Link 
                         className="navLinks"
-                        style={pathname === '/admin' ? activeTabStyle : undefined} 
-                        href="/admin"
+                        style={pathname === '/signin' ? activeTabStyle : undefined} 
+                        href="/signin"
                     >Admin</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
