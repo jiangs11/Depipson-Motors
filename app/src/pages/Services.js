@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Carousel from 'react-bootstrap/Carousel'
+import { Carousel, Button } from 'react-bootstrap'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import image1 from './../statics/images/work.jpg'
@@ -7,18 +7,44 @@ import work1 from './../statics/images/work1.jpg'
 import work2 from './../statics/images/work2.jpg'
 import work3 from './../statics/images/work3.jpg'
 import work4 from './../statics/images/work4.jpg'
-import Paper from '@material-ui/core/Paper';
-import { ViewState } from '@devexpress/dx-react-scheduler';
-import {Scheduler, WeekView,Appointments,} from '@devexpress/dx-react-scheduler-material-ui';
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css'
+import Paper from '@material-ui/core/Paper'
+import { ViewState } from '@devexpress/dx-react-scheduler'
+import {Scheduler, WeekView,Appointments,} from '@devexpress/dx-react-scheduler-material-ui'
 import { appointments } from "./data"
+
+const Appointment = ({ children, style, ...restProps }) => (
+	<Appointments.Appointment
+		{...restProps}
+		style={{
+			...style,
+			backgroundColor: '#FFC107',
+			borderRadius: '8px',
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center'
+		}}
+	>
+		<div>
+		{children}
+		<Button>
+			Setup Appointment
+		</Button>
+		</div>
+	</Appointments.Appointment>
+)
 
 function Services() {
     const [index, setIndex] = useState(0)
 	const [images, ] = useState([image1, work1, work2, work3, work4])
+	const [dateValue, setDateValue] = useState(new Date())
   
     const handleSelect = (selectedIndex, e) => {
       	setIndex(selectedIndex)
     }
+
+	const currentDate = '2018-06-27'
 
     return (
         <div>
@@ -39,42 +65,31 @@ function Services() {
 				})}
 			</Carousel>
 
-			const currentDate = '2018-06-27';
+			<Calendar
+				onChange={setDateValue}
+				value={dateValue}
+				minDate={new Date()}
+				onClickDay={() => console.log('date pressed')}
+			/>
 
-					const Appointment = ({
-  					children, style, ...restProps
-					}) => (
-  <Appointments.Appointment
-    {...restProps}
-    style={{
-      ...style,
-      backgroundColor: '#FFC107',
-      borderRadius: '8px',
-    }}
-  >
-    {children}
-  </Appointments.Appointment>
-);
+			<Paper>
+				<Scheduler
+				data={appointments}
+				height={660}
+				>
+				<ViewState
+					currentDate={currentDate}
+				/>
+				<WeekView
+					startDayHour={9}
+					endDayHour={19}
+				/>
+				<Appointments
+					appointmentComponent={Appointment}
+				/>
+				</Scheduler>
+			</Paper>
 
-export default () => (
-  <Paper>
-    <Scheduler
-      data={appointments}
-      height={660}
-    >
-      <ViewState
-        currentDate={currentDate}
-      />
-      <WeekView
-        startDayHour={9}
-        endDayHour={19}
-      />
-      <Appointments
-        appointmentComponent={Appointment}
-      />
-    </Scheduler>
-  </Paper>
-);
 			<Footer />
         </div>
     )
