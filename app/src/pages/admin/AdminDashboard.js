@@ -1,7 +1,8 @@
 import React from 'react'
 import AdminSideNav from './../../components/AdminSideNav'
 import InfoTable from '../../components/InfoTable'
-import {Form} from 'react-bootstrap'
+import InfoTable2 from '../../components/InfoTable2'
+import { Form } from 'react-bootstrap'
 
 function AdminDashboard() {
     return (

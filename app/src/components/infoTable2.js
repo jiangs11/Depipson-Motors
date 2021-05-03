@@ -16,7 +16,7 @@ import { Table, Button } from 'react-bootstrap'
                 </thead>
                 <tbody>
                     <tr>
-                    <td>Style/BOdy</td>
+                    <td>Style/Body</td>
                     <td>Engine</td>
                     <td>Manufactured</td>
                     <td>Age</td>
