@@ -1,7 +1,6 @@
 import React from 'react'
 import { Col, Row, Dropdown, DropdownButton, Container, Tabs, Tab, InputGroup, Form, Button } from 'react-bootstrap'
 import Slider, { createSliderWithTooltip } from 'rc-slider'
-import 'rc-slider/assets/index.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/fontawesome-free-solid'
 

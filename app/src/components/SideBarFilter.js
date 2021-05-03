@@ -1,36 +1,64 @@
 import React from 'react'
-import { Sidenav, Dropdown, Icon, Nav } from 'rsuite'
+import { Dropdown, DropdownButton } from 'react-bootstrap'
+import Select from 'react-select'
+import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar'
+import { FaGem, FaHeart } from 'react-icons/fa'
 
 function SideBarFilter() {
+    const options = [
+        { value: '2016', label: '2016' },
+        { value: '2017', label: '2017' },
+        { value: '2018', label: '2018' }
+    ]
     return (
         <div>
-            <Sidenav defaultOpenKeys={['3', '4']}>
-        <Sidenav.Body>
-          <Nav>
-            <Nav.Item eventKey="1" active icon={<Icon icon="dashboard" />}>
-              Dashboard
-            </Nav.Item>
-            <Nav.Item eventKey="2" icon={<Icon icon="group" />}>
-              User Group
-            </Nav.Item>
-            <Dropdown eventKey="3" title="Advanced" icon={<Icon icon="magic" />}>
-              <Dropdown.Item eventKey="3-1">Geo</Dropdown.Item>
-              <Dropdown.Item eventKey="3-2">Devices</Dropdown.Item>
-              <Dropdown.Item eventKey="3-3">Loyalty</Dropdown.Item>
-              <Dropdown.Item eventKey="3-4">Visit Depth</Dropdown.Item>
-            </Dropdown>
-            <Dropdown eventKey="4" title="Settings" icon={<Icon icon="gear-circle" />}>
-              <Dropdown.Item eventKey="4-1">Applications</Dropdown.Item>
-              <Dropdown.Item eventKey="4-2">Channels</Dropdown.Item>
-              <Dropdown.Item eventKey="4-3">Versions</Dropdown.Item>
-              <Dropdown.Menu eventKey="4-5" title="Custom Action">
-                <Dropdown.Item eventKey="4-5-1">Action Name</Dropdown.Item>
-                <Dropdown.Item eventKey="4-5-2">Action Params</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Nav>
-        </Sidenav.Body>
-      </Sidenav>
+            <ProSidebar>
+                <Menu iconShape="square">
+                    <SubMenu title="Price Range" icon={<FaHeart />}>
+                        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                            <Select 
+                                className="col-md-5" 
+                                options={options} 
+                                placeholder='Min' 
+                                isSearchable={false}
+                                components={{
+                                    IndicatorSeparator: () => null
+                                }}
+                            />
+                            to
+                            <Select 
+                                className="col-md-5" 
+                                options={options} 
+                                placeholder='Max' 
+                                isSearchable={false}
+                                components={{
+                                    IndicatorSeparator: () => null
+                                }}
+                            />
+                        </div>
+                    </SubMenu>
+                    <SubMenu title="Year Range" icon={<FaHeart />}>
+                        <MenuItem>Component 1</MenuItem>
+                        <MenuItem>Component 2</MenuItem>
+                    </SubMenu>
+                    <SubMenu title="Condition" icon={<FaHeart />}>
+                        <MenuItem>Component 1</MenuItem>
+                        <MenuItem>Component 2</MenuItem>
+                    </SubMenu>
+                    <SubMenu title="Make" icon={<FaHeart />}>
+                        <MenuItem>Component 1</MenuItem>
+                        <MenuItem>Component 2</MenuItem>
+                    </SubMenu>
+                    <SubMenu title="Model" icon={<FaHeart />}>
+                        <MenuItem>Component 1</MenuItem>
+                        <MenuItem>Component 2</MenuItem>
+                    </SubMenu>
+                    <SubMenu title="Mileage Range" icon={<FaHeart />}>
+                        <MenuItem>Component 1</MenuItem>
+                        <MenuItem>Component 2</MenuItem>
+                    </SubMenu>
+                </Menu>
+            </ProSidebar>
         </div>
     )
 }

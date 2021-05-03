@@ -1,13 +1,14 @@
 import React from 'react'
 import Header from '../components/Header'
 import SideBarFilter from '../components/SideBarFilter'
+import Footer from '../components/Footer'
 
 function Gallery() {
     return (
         <div>
             <Header />
-            <h1>Gallery Page</h1>
             <SideBarFilter />
+            <Footer />
         </div>
     )
 }

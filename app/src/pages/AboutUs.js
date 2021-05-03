@@ -55,7 +55,9 @@ function AboutUs() {
                 </Container>
             }                       
 
-            <Form>
+            <Form 
+                // style={{display: 'flex', flexDirection: 'column'}}
+            >
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Mail Us</Form.Label>
                     <Form.Control type="name" placeholder="Your Name" />
@@ -73,7 +75,11 @@ function AboutUs() {
                     <Form.Control as="textarea" rows={3} />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button 
+                    variant="primary" 
+                    type="submit" 
+                    // style={{justifyContent: 'center', alignItems: 'center', }}
+                >
                     Submit
                 </Button>
             </Form>
