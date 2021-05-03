@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'rsuite/dist/styles/rsuite-default.css'
 // Regular Pages
 import LandingPage from './pages/LandingPage'
 import SpecificCarInfo from './pages/SpecificCarInfo'
