@@ -5,7 +5,6 @@ import Jumbotron from '../components/Jumbotron'
 import LandingPageFilter from '../components/LandingPageFilter'
 import Cars from '../components/Cars'
 import Footer from '../components/Footer'
-import Loadfile from '../components/Loadfile'
 
 function LandingPage({ history }) {
     return (
@@ -16,7 +15,6 @@ function LandingPage({ history }) {
 			<LandingPageFilter />
             <h1 style={{textAlign:"center"}}>Start planning your travels here with the latest deals for popular destinations </h1>
             <Cars />
-            <Loadfile />
 			<Footer />
         </div>
     )

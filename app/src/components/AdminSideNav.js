@@ -25,7 +25,7 @@ function AdminSideNav() {
                     <NavLink href="/adminSurveys" style={{ fontWeight: 'bolder' }}>&nbsp;&nbsp;<RiSurveyFill />&nbsp;Surveys</NavLink>
                 </NavItem>
             </Nav>
-            <Form.Control size="lg" type="text" placeholder="Nissa" />
+            {/* <Form.Control size="lg" type="text" placeholder="Nissa" /> */}
         </div>
     )
 }

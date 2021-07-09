@@ -38,12 +38,11 @@ function Services() {
     const [index, setIndex] = useState(0)
 	const [images, ] = useState([image1, work1, work2, work3, work4])
 	const [dateValue, setDateValue] = useState(new Date())
+    const [selectedDate, setSelectedDate] = useState("")
   
     const handleSelect = (selectedIndex, e) => {
       	setIndex(selectedIndex)
     }
-
-	const currentDate = '2018-06-27'
 
     return (
         <div>
@@ -64,20 +63,24 @@ function Services() {
 				})}
 			</Carousel>
 
-			<Calendar
-				onChange={setDateValue}
-				value={dateValue}
-				minDate={new Date()}
-				onClickDay={() => console.log('date pressed')}
-			/>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: 20, marginBottom: 30 }}>
+                <h1>Schedule an Appointment with Us</h1>
+                <Calendar
+                    onChange={setDateValue}
+                    value={dateValue}
+                    minDate={new Date()}
+                    onClickDay={(value) => setSelectedDate(value)}
+                    calendarType="US"
+    			/>
+            </div>
 
 			<Paper>
 				<Scheduler
-				data={appointments}
-				height={660}
+                    data={appointments}
+                    height={660}
 				>
 				<ViewState
-					currentDate={currentDate}
+					currentDate={selectedDate === '' ? dateValue : selectedDate}
 				/>
 				<WeekView
 					startDayHour={9}

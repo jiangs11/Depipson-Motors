@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminSideNav from './../../components/AdminSideNav'
+import Loadfile from '../../components/Loadfile'
 import InfoTable from '../../components/InfoTable'
 import InfoTable2 from '../../components/InfoTable2'
 import { Form } from 'react-bootstrap'
@@ -7,14 +7,17 @@ import { Form } from 'react-bootstrap'
 function AdminDashboard() {
     return (
         <div>
-            <AdminSideNav />
+            {/* <AdminSideNav /> */}
             <h1 style={{textAlign:"center"}}>VIN DECODER & LookUp</h1>
             <div style={{textAlign:"center"}}>Decode Your Vehicle Identification Number Here</div>
-        <Form.Group>
-            <Form.Control size="lg" type="text" placeholder="Search..." />
-        </Form.Group>
-        <InfoTable />
-        <InfoTable2 />
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                <Form.Group style={{ width: '50%' }}>
+                    <Form.Control size="lg" type="text" placeholder="Enter VIN..." />
+                </Form.Group>
+            </div>
+            <InfoTable />
+            <InfoTable2 />
+            <Loadfile />
     </div>
     )
 }

@@ -18,7 +18,7 @@ function AboutUs() {
         <div>
             <Header />
 
-            <div className="d-flex align-items-center justify-content-center" style={{marginTop: 20, marginBottom: 20}}>
+            <div className="d-flex align-items-center justify-content-center" style={{marginTop: 0, marginBottom: 20}}>
                 <Map
                     googleMapURL={googleMapUrl}
                     loadingElement={<div style={{ height: '100%' }} />}
@@ -55,34 +55,46 @@ function AboutUs() {
                 </Container>
             }                       
 
-            <Form 
-                // style={{display: 'flex', flexDirection: 'column'}}
-            >
-                <Form.Group controlId="exampleForm.ControlInput1">
-                    <Form.Label>Mail Us</Form.Label>
-                    <Form.Control type="name" placeholder="Your Name" />
-                </Form.Group>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+                <div style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: 'white',
+                    width: '50%',
+                }}>
+                    <Form style={{display: 'flex', flexDirection: 'column'}}>
+                        <Form.Group controlId="exampleForm.ControlInput1">
+                            <Form.Label style={{ fontWeight: 500, fontSize: 20 }}>Mail Us</Form.Label>
+                            <Form.Control size="lg" type="name" placeholder="Name" />
+                        </Form.Group>
 
-                <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Control type="Your Email" placeholder="name@example.com" />
-                </Form.Group>
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                            <Form.Control size="lg" type="email" placeholder="email@example.com" />
+                        </Form.Group>
 
-                <Form.Group controlId="exampleForm.ControlSelect2">
-                </Form.Group>
-                
-                <Form.Group controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Your Message</Form.Label>
-                    <Form.Control as="textarea" rows={3} />
-                </Form.Group>
+                        <Form.Group controlId="exampleForm.ControlSelect2">
+                        </Form.Group>
+                        
+                        <Form.Group controlId="exampleForm.ControlTextarea1">
+                            <Form.Label style={{ fontWeight: 500, fontSize: 20 }}>Your Message</Form.Label>
+                            <Form.Control as="textarea" rows={5} />
+                        </Form.Group>
 
-                <Button 
-                    variant="primary" 
-                    type="submit" 
-                    // style={{justifyContent: 'center', alignItems: 'center', }}
-                >
-                    Submit
-                </Button>
-            </Form>
+                        <Button 
+                            variant="primary" 
+                            type="submit"
+                            size="lg"
+                        >
+                            Submit
+                        </Button>
+                    </Form>
+                </div>
+            </div>
+
             <Footer />
         </div>
     )

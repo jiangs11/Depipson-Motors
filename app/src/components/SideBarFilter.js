@@ -11,7 +11,7 @@ function SideBarFilter() {
         { value: '2018', label: '2018' }
     ]
     return (
-        <div>
+        <div style={{}}>
             <ProSidebar>
                 <Menu iconShape="square">
                     <SubMenu title="Price Range" icon={<FaHeart />}>
