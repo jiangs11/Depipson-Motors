@@ -1,0 +1,10 @@
+@import "./header.scss";
+@import "./footer.scss";
+@import "./landingPageFilter.scss";
+@import "./carsCard.scss";
+@import "./aboutUs.scss";
+@import "./adminSignIn.scss";
+
+// $sidebar-bg-color: #25b3f5;
+$sidebar-width: 330px;
+@import '~react-pro-sidebar/dist/scss/styles.scss';
