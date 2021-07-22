@@ -9,8 +9,8 @@ router.route('/')
 router.route('/:information')
     .get(adminController.getMobileNumber)
     .get(adminController.getEmail)
-    .get(adminController.getBirthday
-    .get(adminController.getGener))
+    .get(adminController.getBirthday)
+    .get(adminController.getGener)
     .patch(adminController.editAdmininformation)
     .delete(adminController.deleteAdmin)
 
