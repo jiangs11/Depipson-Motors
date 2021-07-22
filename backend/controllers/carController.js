@@ -29,7 +29,7 @@ exports.getCarInfo = catchAsync(async (req, res) => {
 
         res.status(200).json({
             status: 'success',
-            data: carDoc
+            data: carDoc === null ? [] : carDoc
         })
     } catch (error) {
         console.log('cars/getCarInfo error: ', error)
