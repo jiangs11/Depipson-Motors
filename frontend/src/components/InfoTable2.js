@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Table, Button } from 'react-bootstrap'
 
-    
+
 
     function InfoTable2(){
         const [index, setIndex] = useState(0)
@@ -16,7 +16,7 @@ import { Table, Button } from 'react-bootstrap'
                 </thead>
                 <tbody>
                     <tr>
-                    <td>Style/Body</td>
+                    <td>Styles/Bodys</td>
                     <td>Engine</td>
                     <td>Manufactured</td>
                     <td>Age</td>
